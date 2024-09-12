@@ -7,13 +7,14 @@ const Home: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Blank</IonTitle>
+          {/* Se agrega una clase personalizada al título */}
+          <IonTitle className="custom-title">StockPro+</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">Blank</IonTitle>
+            <IonTitle size="large" className="custom-title">StockPro+</IonTitle>
           </IonToolbar>
         </IonHeader>
         <ExploreContainer />
