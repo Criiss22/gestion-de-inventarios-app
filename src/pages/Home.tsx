@@ -19,10 +19,16 @@ const Home: React.FC = () => {
               <IonLabel>Inicio</IonLabel>
             </IonItem>
             <IonItem button>
-              <IonLabel>Ajustes</IonLabel>
+              <IonLabel>Gestion de inventario</IonLabel>
             </IonItem>
             <IonItem button>
-              <IonLabel>Acerca de</IonLabel>
+              <IonLabel>Inventario</IonLabel>
+            </IonItem>
+            <IonItem button>
+              <IonLabel>Historial De Movimientos </IonLabel>
+            </IonItem>
+            <IonItem button>
+              <IonLabel>Ayuda</IonLabel>
             </IonItem>
           </IonList>
         </IonContent>
