@@ -15,3 +15,8 @@
     }
   }
   
+
+  ion-menu {
+    --width: 250px; /* Ajusta el ancho del menú */
+  }
+  

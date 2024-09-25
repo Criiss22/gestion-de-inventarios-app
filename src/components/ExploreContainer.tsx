@@ -1,96 +1,86 @@
 import React from 'react';
-import { IonBackButton, IonButton, IonButtons, IonIcon, IonMenuButton, IonTitle, IonToolbar } from '@ionic/react';
-import { create, ellipsisHorizontal, ellipsisVertical, helpCircle, search, personCircle, star } from 'ionicons/icons';
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonFooter, IonGrid, IonRow, IonCol, IonIcon, IonMenu, IonList, IonItem, IonLabel, IonMenuButton, IonButtons, IonRouterOutlet } from '@ionic/react';
+import { logoFacebook, logoInstagram, logoTwitter } from 'ionicons/icons';
+import { menuController } from '@ionic/core';
 
-
-interface ContainerProps { }
-
-function Example() {
+const HomePage: React.FC = () => {
   return (
     <>
-      <IonToolbar>
-        <IonButtons slot="start">
-          <IonButton>Start</IonButton>
-        </IonButtons>
-        <IonTitle>Start / End Buttons</IonTitle>
-        <IonButtons slot="end">
-          <IonButton>End</IonButton>
-        </IonButtons>
-      </IonToolbar>
+      {/* Menú lateral */}
+      <IonMenu side="start" contentId="main-content">
+        <IonHeader>
+          <IonToolbar>
+            <IonTitle>Menú</IonTitle>
+          </IonToolbar>
+        </IonHeader>
+        <IonContent>
+          <IonList>
+            <IonItem button>
+              <IonLabel>Inicio</IonLabel>
+            </IonItem>
+            <IonItem button>
+              <IonLabel>Ajustes</IonLabel>
+            </IonItem>
+            <IonItem button>
+              <IonLabel>Acerca de</IonLabel>
+            </IonItem>
+          </IonList>
+        </IonContent>
+      </IonMenu>
 
-      <IonToolbar>
-        <IonButtons slot="secondary">
-          <IonButton>Secondary</IonButton>
-        </IonButtons>
-        <IonButtons slot="primary">
-          <IonButton>Primary</IonButton>
-        </IonButtons>
-        <IonTitle>Primary / Secondary Buttons</IonTitle>
-      </IonToolbar>
+      {/* Página principal */}
+      <IonPage id="main-content">
+        {/* Cabecera con botón de menú */}
+        <IonHeader>
+          <IonToolbar>
+            <IonButtons slot="start">
+              <IonMenuButton />
+            </IonButtons>
+            <IonTitle>STOCK PRO+</IonTitle>
+          </IonToolbar>
+        </IonHeader>
 
-      <IonToolbar>
-        <IonButtons slot="secondary">
-          <IonButton>
-            <IonIcon slot="icon-only" icon={personCircle}></IonIcon>
-          </IonButton>
-          <IonButton>
-            <IonIcon slot="icon-only" icon={search}></IonIcon>
-          </IonButton>
-        </IonButtons>
-        <IonButtons slot="primary">
-          <IonButton>
-            <IonIcon slot="icon-only" ios={ellipsisHorizontal} md={ellipsisVertical}></IonIcon>
-          </IonButton>
-        </IonButtons>
-        <IonTitle>Icon Buttons</IonTitle>
-      </IonToolbar>
+        {/* Contenido principal */}
+        <IonContent className="ion-padding">
+          <p>Bienvenido a STOCK PRO+.</p>
+          <p>Aquí puedes gestionar tus inventarios de forma rápida y eficiente.</p>
+        </IonContent>
 
-      <IonToolbar>
-        <IonButtons slot="secondary">
-          <IonButton fill="solid">
-            <IonIcon slot="start" icon={personCircle}></IonIcon>
-            Contact
-          </IonButton>
-        </IonButtons>
-        <IonButtons slot="primary">
-          <IonButton fill="solid">
-            Help
-            <IonIcon slot="end" icon={helpCircle}></IonIcon>
-          </IonButton>
-        </IonButtons>
-        <IonTitle>Solid Buttons</IonTitle>
-      </IonToolbar>
+        {/* Pie de página */}
+        <IonFooter>
+          <IonToolbar>
+            <IonGrid>
+              {/* Fila para enlaces de redes sociales */}
+              <IonRow className="ion-justify-content-center">
+                <IonCol size="auto">
+                  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                    <IonIcon icon={logoFacebook} size="large" />
+                  </a>
+                </IonCol>
+                <IonCol size="auto">
+                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                    <IonIcon icon={logoInstagram} size="large" />
+                  </a>
+                </IonCol>
+                <IonCol size="auto">
+                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                    <IonIcon icon={logoTwitter} size="large" />
+                  </a>
+                </IonCol>
+              </IonRow>
 
-      <IonToolbar>
-        <IonButtons slot="secondary">
-          <IonButton fill="outline">
-            <IonIcon slot="start" icon={star}></IonIcon>
-            Star
-          </IonButton>
-        </IonButtons>
-        <IonButtons slot="primary">
-          <IonButton fill="outline">
-            Edit
-            <IonIcon slot="end" icon={create}></IonIcon>
-          </IonButton>
-        </IonButtons>
-        <IonTitle>Outline Buttons</IonTitle>
-      </IonToolbar>
-
-      <IonToolbar>
-        <IonButtons slot="start">
-          <IonBackButton defaultHref="#"></IonBackButton>
-        </IonButtons>
-        <IonTitle>Back Button</IonTitle>
-      </IonToolbar>
-
-      <IonToolbar>
-        <IonButtons slot="start">
-          <IonMenuButton autoHide={false}></IonMenuButton>
-        </IonButtons>
-        <IonTitle>Menu Button</IonTitle>
-      </IonToolbar>
+              {/* Fila para texto de copyright */}
+              <IonRow className="ion-justify-content-center">
+                <IonCol size="12" className="ion-text-center">
+                  <p>© 2024 STOCK PRO+ - Todos los derechos reservados</p>
+                </IonCol>
+              </IonRow>
+            </IonGrid>
+          </IonToolbar>
+        </IonFooter>
+      </IonPage>
     </>
   );
-}
-export default Example;
+};
+
+export default HomePage;
