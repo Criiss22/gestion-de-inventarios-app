@@ -59,7 +59,7 @@ const Ayuda: React.FC = () => (
         <IonSearchbar slot="end" placeholder="Buscar..." style={{ width: '300px' }} />
       </IonToolbar>
     </IonHeader>
-    
+
     <IonContent>
       <h1>Ayuda</h1>
       <p>Esta es la sección de ayuda. Aquí encontrarás respuestas a tus preguntas.</p>

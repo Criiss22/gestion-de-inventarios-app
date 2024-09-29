@@ -4,7 +4,6 @@ import './Home.css';
 import React from 'react';
 import imagen39 from '../imagenes/39.jpg';
 
-
 const Home: React.FC = () => {
   return (
     <>
@@ -40,13 +39,10 @@ const Home: React.FC = () => {
       <IonPage id="main-content">
         <IonHeader>
           <IonToolbar>
-            {/* Botón del menú */}
             <IonButtons slot="start">
               <IonMenuButton />
             </IonButtons>
-            {/* Se agrega una clase personalizada al título */}
             <IonTitle className="custom-title">StockPro+</IonTitle>
-            {/* Barra de búsqueda */}
             <IonSearchbar slot="end" placeholder="Buscar..." style={{ width: '300px' }} />
           </IonToolbar>
         </IonHeader>

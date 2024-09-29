@@ -60,6 +60,7 @@ const GestionInventario: React.FC = () => (
         <IonSearchbar slot="end" placeholder="Buscar..." style={{ width: '300px' }} />
       </IonToolbar>
     </IonHeader>
+    
     <IonContent>
       <h1>Gestión de Inventario</h1>
       <p>Aquí puedes gestionar el inventario de productos.</p>
