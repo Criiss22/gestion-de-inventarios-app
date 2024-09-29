@@ -1,7 +1,9 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonMenu, IonList, IonItem, IonLabel, IonMenuButton, IonButtons } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonMenu, IonList, IonItem, IonLabel, IonMenuButton, IonButtons, IonSearchbar } from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
 import './Home.css';
 import React from 'react';
+import imagen39 from '../imagenes/39.jpg';
+
 
 const Home: React.FC = () => {
   return (
@@ -15,19 +17,19 @@ const Home: React.FC = () => {
         </IonHeader>
         <IonContent>
           <IonList>
-            <IonItem button>
+            <IonItem button routerLink="/home">
               <IonLabel>Inicio</IonLabel>
             </IonItem>
-            <IonItem button>
-              <IonLabel>Gestion de inventario</IonLabel>
+            <IonItem button routerLink="/gestion-inventario">
+              <IonLabel>Gestión de inventario</IonLabel>
             </IonItem>
-            <IonItem button>
+            <IonItem button routerLink="/inventario">
               <IonLabel>Inventario</IonLabel>
             </IonItem>
-            <IonItem button>
-              <IonLabel>Historial De Movimientos </IonLabel>
+            <IonItem button routerLink="/historial-movimientos">
+              <IonLabel>Historial De Movimientos</IonLabel>
             </IonItem>
-            <IonItem button>
+            <IonItem button routerLink="/ayuda">
               <IonLabel>Ayuda</IonLabel>
             </IonItem>
           </IonList>
@@ -44,6 +46,8 @@ const Home: React.FC = () => {
             </IonButtons>
             {/* Se agrega una clase personalizada al título */}
             <IonTitle className="custom-title">StockPro+</IonTitle>
+            {/* Barra de búsqueda */}
+            <IonSearchbar slot="end" placeholder="Buscar..." style={{ width: '300px' }} />
           </IonToolbar>
         </IonHeader>
         <IonContent fullscreen>
@@ -53,6 +57,9 @@ const Home: React.FC = () => {
             </IonToolbar>
           </IonHeader>
           <ExploreContainer />
+          
+          {/* Aquí agregamos la imagen */}
+          <img src={imagen39} alt="Descripción de la imagen" style={{ width: '100%', height: 'auto' }} />
         </IonContent>
       </IonPage>
     </>
