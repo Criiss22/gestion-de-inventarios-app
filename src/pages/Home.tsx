@@ -31,6 +31,9 @@ const Home: React.FC = () => {
             <IonItem button routerLink="/ayuda">
               <IonLabel>Ayuda</IonLabel>
             </IonItem>
+            <IonItem button routerLink="/login">  {/* Añadido el acceso a Login */}
+              <IonLabel>Login</IonLabel>
+            </IonItem>
           </IonList>
         </IonContent>
       </IonMenu>

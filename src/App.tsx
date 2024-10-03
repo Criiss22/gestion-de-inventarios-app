@@ -6,6 +6,7 @@ import GestionInventario from './pages/GestionInventario';
 import Inventario from './pages/Inventario';
 import HistorialMovimientos from './pages/HistorialMovimientos';
 import Ayuda from './pages/Ayuda';
+import Login from './pages/Login';  // Importación de la página de Login
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -24,7 +25,6 @@ import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
 
 /* Dark Mode and Theme variables */
-import '@ionic/react/css/palettes/dark.system.css';
 import './theme/variables.css';
 
 setupIonicReact();
@@ -33,6 +33,7 @@ const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
+        {/* Rutas de la aplicación */}
         <Route exact path="/home">
           <Home />
         </Route>
@@ -47,6 +48,9 @@ const App: React.FC = () => (
         </Route>
         <Route exact path="/ayuda">
           <Ayuda />
+        </Route>
+        <Route exact path="/login">  {/* Ruta para la página de Login */}
+          <Login />
         </Route>
         <Route exact path="/">
           <Redirect to="/home" />
