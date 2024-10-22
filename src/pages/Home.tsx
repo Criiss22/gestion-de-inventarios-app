@@ -1,4 +1,8 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonMenu, IonList, IonItem, IonLabel, IonMenuButton, IonButtons, IonSearchbar } from '@ionic/react';
+import { 
+  IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonMenu, IonList, IonItem, IonLabel, 
+  IonMenuButton, IonButtons, IonSearchbar, IonButton, IonIcon 
+} from '@ionic/react';
+import { personCircle } from 'ionicons/icons'; // Importar el ícono de persona
 import ExploreContainer from '../components/ExploreContainer';
 import './Home.css';
 import React from 'react';
@@ -31,7 +35,7 @@ const Home: React.FC = () => {
             <IonItem button routerLink="/ayuda">
               <IonLabel>Ayuda</IonLabel>
             </IonItem>
-            <IonItem button routerLink="/login">  {/* Añadido el acceso a Login */}
+            <IonItem button routerLink="/login">  
               <IonLabel>Login</IonLabel>
             </IonItem>
           </IonList>
@@ -45,19 +49,35 @@ const Home: React.FC = () => {
             <IonButtons slot="start">
               <IonMenuButton />
             </IonButtons>
+
             <IonTitle className="custom-title">StockPro+</IonTitle>
-            <IonSearchbar slot="end" placeholder="Buscar..." style={{ width: '300px' }} />
+
+            {/* Contenedor para buscador e ícono */}
+            <IonButtons slot="end" style={{ display: 'flex', alignItems: 'center' }}>
+              {/* Buscador */}
+              <IonSearchbar 
+                placeholder="Buscar..." 
+                style={{ width: '30px', marginRight: '10px' }} 
+              />
+              
+              {/* Botón de inicio de sesión con ícono de persona */}
+              <IonButton routerLink="/login" fill="outline">
+                <IonIcon icon={personCircle} />
+              </IonButton>
+            </IonButtons>
           </IonToolbar>
         </IonHeader>
+
         <IonContent fullscreen>
           <IonHeader collapse="condense">
             <IonToolbar>
               <IonTitle size="large" className="custom-title">StockPro+</IonTitle>
             </IonToolbar>
           </IonHeader>
+
           <ExploreContainer />
-          
-          {/* Aquí agregamos la imagen */}
+
+          {/* Imagen */}
           <img src={imagen39} alt="Descripción de la imagen" style={{ width: '100%', height: 'auto' }} />
         </IonContent>
       </IonPage>

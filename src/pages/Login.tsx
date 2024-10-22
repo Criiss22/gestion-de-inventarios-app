@@ -1,14 +1,35 @@
 import React, { useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonMenu, IonList, IonItem, IonLabel, IonInput, IonButton, IonMenuButton, IonButtons } from '@ionic/react';
+import { 
+  IonContent, 
+  IonHeader, 
+  IonPage, 
+  IonTitle, 
+  IonToolbar, 
+  IonMenu, 
+  IonList, 
+  IonItem, 
+  IonLabel, 
+  IonInput, 
+  IonButton, 
+  IonMenuButton, 
+  IonButtons 
+} from '@ionic/react';
 
 const Login: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [email, setEmail] = useState(''); // Estado para el correo electrónico
+  const [isRegistering, setIsRegistering] = useState(false); // Estado para controlar la vista
 
   const handleLogin = () => {
-    // Aquí puedes añadir la lógica para manejar el login
     console.log('Username:', username);
     console.log('Password:', password);
+  };
+
+  const handleRegister = () => {
+    console.log('Username:', username);
+    console.log('Password:', password);
+    console.log('Email:', email);
   };
 
   return (
@@ -41,39 +62,86 @@ const Login: React.FC = () => {
         </IonContent>
       </IonMenu>
 
-      {/* Página de login */}
+      {/* Página de login o registro */}
       <IonPage id="main-content">
         <IonHeader>
           <IonToolbar>
             <IonButtons slot="start">
               <IonMenuButton />
             </IonButtons>
-            <IonTitle>Iniciar Sesión</IonTitle>
+            <IonTitle>{isRegistering ? 'Registrarse' : 'Iniciar Sesión'}</IonTitle>
           </IonToolbar>
         </IonHeader>
         <IonContent fullscreen>
-          <IonItem>
-            <IonLabel position="floating">Nombre de usuario</IonLabel>
-            <IonInput
-              value={username}
-              onIonChange={(e) => setUsername(e.detail.value!)}
-              clearInput
-            />
-          </IonItem>
+          {isRegistering ? (
+            <>
+              {/* Formulario de registro */}
+              <IonItem>
+                <IonLabel position="floating">Nombre de usuario</IonLabel>
+                <IonInput
+                  value={username}
+                  onIonChange={(e) => setUsername(e.detail.value!)}
+                  clearInput
+                />
+              </IonItem>
 
-          <IonItem>
-            <IonLabel position="floating">Contraseña</IonLabel>
-            <IonInput
-              type="password"
-              value={password}
-              onIonChange={(e) => setPassword(e.detail.value!)}
-              clearInput
-            />
-          </IonItem>
+              <IonItem>
+                <IonLabel position="floating">Correo electrónico</IonLabel>
+                <IonInput
+                  type="email"
+                  value={email}
+                  onIonChange={(e) => setEmail(e.detail.value!)}
+                  clearInput
+                />
+              </IonItem>
 
-          <IonButton expand="full" onClick={handleLogin}>
-            Iniciar Sesión
-          </IonButton>
+              <IonItem>
+                <IonLabel position="floating">Contraseña</IonLabel>
+                <IonInput
+                  type="password"
+                  value={password}
+                  onIonChange={(e) => setPassword(e.detail.value!)}
+                  clearInput
+                />
+              </IonItem>
+
+              <IonButton expand="full" onClick={handleRegister}>
+                Registrarse
+              </IonButton>
+              <IonButton expand="full" fill="clear" onClick={() => setIsRegistering(false)}>
+                Volver a Iniciar Sesión
+              </IonButton>
+            </>
+          ) : (
+            <>
+              {/* Formulario de inicio de sesión */}
+              <IonItem>
+                <IonLabel position="floating">Nombre de usuario</IonLabel>
+                <IonInput
+                  value={username}
+                  onIonChange={(e) => setUsername(e.detail.value!)}
+                  clearInput
+                />
+              </IonItem>
+
+              <IonItem>
+                <IonLabel position="floating">Contraseña</IonLabel>
+                <IonInput
+                  type="password"
+                  value={password}
+                  onIonChange={(e) => setPassword(e.detail.value!)}
+                  clearInput
+                />
+              </IonItem>
+
+              <IonButton expand="full" onClick={handleLogin}>
+                Iniciar Sesión
+              </IonButton>
+              <IonButton expand="full" fill="clear" onClick={() => setIsRegistering(true)}>
+                Crear una cuenta
+              </IonButton>
+            </>
+          )}
         </IonContent>
       </IonPage>
     </>

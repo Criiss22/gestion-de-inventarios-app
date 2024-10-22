@@ -56,7 +56,7 @@ const Ayuda: React.FC = () => (
           <IonMenuButton />
         </IonButtons>
         <IonTitle>Ayuda</IonTitle>
-        <IonSearchbar slot="end" placeholder="Buscar..." style={{ width: '300px' }} />
+        <IonSearchbar slot="end" placeholder="Buscar..." style={{ width: '100px' }} />
       </IonToolbar>
     </IonHeader>
 
