@@ -1,75 +1,114 @@
-import React from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonSearchbar, IonMenu, IonList, IonItem, IonLabel, IonMenuButton, IonButtons, IonIcon, IonButton } from '@ionic/react';
-import { logoIonic } from 'ionicons/icons'; // Importa IonIcon
+import React, { useState } from 'react';
+import { 
+  IonContent, 
+  IonHeader, 
+  IonPage, 
+  IonTitle, 
+  IonToolbar, 
+  IonMenu, 
+  IonList, 
+  IonItem, 
+  IonLabel, 
+  IonMenuButton, 
+  IonButtons, 
+  IonIcon, 
+  IonButton, 
+  IonSearchbar, 
+  IonTextarea, 
+  IonToast 
+} from '@ionic/react';
+import { logoIonic, helpCircleOutline } from 'ionicons/icons';
 
-// Componente Example para los íconos
-const IconExample: React.FC = () => {
+const Ayuda: React.FC = () => {
+  const [pregunta, setPregunta] = useState('');
+  const [showToast, setShowToast] = useState(false);
+
+  const handleEnviarPregunta = () => {
+    if (pregunta.trim()) {
+      setShowToast(true); // Mostrar notificación
+      setPregunta(''); // Limpiar el campo
+    }
+  };
+
   return (
-    <>
-      <IonIcon icon={logoIonic}></IonIcon>
-      <IonIcon icon={logoIonic} size="large"></IonIcon>
-      <IonIcon icon={logoIonic} color="primary"></IonIcon>
-      <IonIcon icon={logoIonic} size="large" color="primary"></IonIcon>
-    </>
-  );
-};
+    <IonPage>
+      {/* Menú lateral */}
+      <IonMenu side="start" contentId="main-content" className="custom-menu">
+        <IonHeader>
+          <IonToolbar>
+            <IonTitle>Menú</IonTitle>
+          </IonToolbar>
+        </IonHeader>
+        <IonContent>
+          <IonList>
+            <IonItem button routerLink="/home">
+              <IonLabel>Inicio</IonLabel>
+            </IonItem>
+            <IonItem button routerLink="/gestion-inventario">
+              <IonLabel>Gestión de Inventario</IonLabel>
+            </IonItem>
+            <IonItem button routerLink="/inventario">
+              <IonLabel>Inventario</IonLabel>
+            </IonItem>
+            <IonItem button routerLink="/historial-movimientos">
+              <IonLabel>Historial De Movimientos</IonLabel>
+            </IonItem>
+            <IonItem button routerLink="/ayuda">
+              <IonLabel>Ayuda</IonLabel>
+            </IonItem>
+          </IonList>
+        </IonContent>
+      </IonMenu>
 
-// Componente Example para el botón
-const ButtonExample: React.FC = () => {
-  return <IonButton>hola mundo</IonButton>;
-};
-
-const Ayuda: React.FC = () => (
-  <IonPage>
-    {/* Menú lateral */}
-    <IonMenu side="start" contentId="main-content" className="custom-menu">
+      {/* Contenido de la página de Ayuda */}
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Menú</IonTitle>
+          <IonButtons slot="start">
+            <IonMenuButton />
+          </IonButtons>
+          <IonTitle>Ayuda</IonTitle>
+          <IonSearchbar slot="end" placeholder="Buscar..." style={{ width: '100px' }} />
         </IonToolbar>
       </IonHeader>
-      <IonContent>
-        <IonList>
-          <IonItem button routerLink="/home">
-            <IonLabel>Inicio</IonLabel>
-          </IonItem>
-          <IonItem button routerLink="/gestion-inventario">
-            <IonLabel>Gestión de inventario</IonLabel>
-          </IonItem>
-          <IonItem button routerLink="/inventario">
-            <IonLabel>Inventario</IonLabel>
-          </IonItem>
-          <IonItem button routerLink="/historial-movimientos">
-            <IonLabel>Historial De Movimientos</IonLabel>
-          </IonItem>
-          <IonItem button routerLink="/ayuda">
-            <IonLabel>Ayuda</IonLabel>
-          </IonItem>
-        </IonList>
+
+      <IonContent className="ion-padding">
+        <h1>Ayuda</h1>
+        <p>Aquí encontrarás toda la información necesaria para utilizar la aplicación de manera eficiente.</p>
+
+        <h2>Cómo utilizar la aplicación</h2>
+        <ul>
+          <li>Accede a <strong>Gestión de Inventario</strong> para administrar tus productos, añadiendo, editando o eliminando elementos según sea necesario.</li>
+          <li>Consulta el <strong>Inventario</strong> para ver una lista detallada de todos tus productos disponibles.</li>
+          <li>Revisa el <strong>Historial de Movimientos</strong> para obtener un registro de todas las transacciones realizadas.</li>
+          <li>Utiliza la sección de <strong>Ayuda</strong> para resolver dudas y problemas comunes.</li>
+          <li>Para cualquier pregunta o asistencia adicional, no dudes en enviarnos un mensaje utilizando el formulario de abajo.</li>
+        </ul>
+
+        <IonItem lines="full">
+          <IonIcon icon={helpCircleOutline} slot="start" />
+          <IonLabel>¿Tienes alguna pregunta? Envíala aquí:</IonLabel>
+        </IonItem>
+
+        <IonTextarea
+          placeholder="Escribe tu pregunta..."
+          value={pregunta}
+          onIonChange={(e) => setPregunta(e.detail.value!)}
+          autoGrow
+        />
+
+        <IonButton expand="full" className="ion-margin-top" onClick={handleEnviarPregunta}>
+          Enviar Pregunta
+        </IonButton>
+
+        <IonToast
+          isOpen={showToast}
+          onDidDismiss={() => setShowToast(false)}
+          message="Tu pregunta ha sido recibida. Responderemos en 24 a 48 horas."
+          duration={3000}
+        />
       </IonContent>
-    </IonMenu>
-
-    {/* Contenido de la página Ayuda */}
-    <IonHeader>
-      <IonToolbar>
-        <IonButtons slot="start">
-          <IonMenuButton />
-        </IonButtons>
-        <IonTitle>Ayuda</IonTitle>
-        <IonSearchbar slot="end" placeholder="Buscar..." style={{ width: '100px' }} />
-      </IonToolbar>
-    </IonHeader>
-
-    <IonContent>
-      <h1>Ayuda</h1>
-      <p>Esta es la sección de ayuda. Aquí encontrarás respuestas a tus preguntas.</p>
-      <p>Si necesitas más información, por favor contacta a nuestro soporte.</p>
-      
-      {/* Aquí se añaden los íconos y el botón */}
-      <IconExample />
-      <ButtonExample />
-    </IonContent>
-  </IonPage>
-);
+    </IonPage>
+  );
+};
 
 export default Ayuda;
