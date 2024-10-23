@@ -57,7 +57,7 @@ const Home: React.FC = () => {
               {/* Buscador */}
               <IonSearchbar 
                 placeholder="Buscar..." 
-                style={{ width: '30px', marginRight: '10px' }} 
+                style={{ width: '20px', marginRight: '10px' }} 
               />
               
               {/* Botón de inicio de sesión con ícono de persona */}
