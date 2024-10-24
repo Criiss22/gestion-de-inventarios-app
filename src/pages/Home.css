@@ -1,22 +1,88 @@
-.custom-title {
-    font-size: 2.5rem; /* Tamaño más grande */
-    font-weight: bold; /* Negrita */
-    text-align: center; /* Centrado */
-    color: #3b82f6; /* Color azul vibrante */
-    text-transform: uppercase; /* Todo en mayúsculas */
-    letter-spacing: 0.1rem; /* Espaciado entre letras */
-    margin: 20px 0; /* Espaciado superior e inferior */
-    font-family: 'Roboto', sans-serif; /* Fuente personalizada */
-  }
-  
-  @media (max-width: 768px) {
-    .custom-title {
-      font-size: 2rem; /* Ajusta el tamaño del texto para pantallas pequeñas */
-    }
-  }
-  
+/* Reseteo básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
 
-  ion-menu {
-    --width: 250px; /* Ajusta el ancho del menú */
-  }
-  
+/* Contenedor principal */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Garantiza que el pie de página quede al fondo */
+}
+
+/* Contenido principal */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1; /* Ocupa todo el espacio disponible */
+  padding: 20px;
+  text-align: center;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+  flex-wrap: wrap; /* Permite que las tarjetas se adapten en pantallas pequeñas */
+}
+
+.card {
+  width: 300px;
+  padding: 20px;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.blue {
+  background-color: #007bff;
+}
+
+.dark-blue {
+  background-color: #0056b3;
+}
+
+/* Imagen */
+.image-container {
+  margin-top: 30px;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Pie de página */
+.footer {
+  background-color: #f1f1f1;
+  text-align: center;
+  padding: 15px;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.footer .social-links {
+  margin-bottom: 10px;
+}
+
+.footer .social-links a {
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.footer .social-links img {
+  vertical-align: middle;
+}
+
+.footer p {
+  color: #333;
+  font-size: 0.9rem;
+}

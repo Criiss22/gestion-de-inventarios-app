@@ -1,12 +1,12 @@
-import { 
-  IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonMenu, IonList, IonItem, IonLabel, 
-  IonMenuButton, IonButtons, IonSearchbar, IonButton, IonIcon 
-} from '@ionic/react';
-import { personCircle } from 'ionicons/icons'; // Importar el ícono de persona
-import ExploreContainer from '../components/ExploreContainer';
-import './Home.css';
 import React from 'react';
-import imagen39 from '../imagenes/39.jpg';
+import { 
+  IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonMenu, IonList, 
+  IonItem, IonLabel, IonMenuButton, IonButtons, IonSearchbar, IonButton, IonIcon, 
+  IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonGrid, IonRow, IonCol 
+} from '@ionic/react';
+import { personCircle } from 'ionicons/icons';
+import './Home.css'; // Asegúrate de que tus estilos CSS estén aquí
+import imagen39 from '../imagenes/39.jpg'; // Cambia esto por la imagen que desees
 
 const Home: React.FC = () => {
   return (
@@ -24,18 +24,18 @@ const Home: React.FC = () => {
               <IonLabel>Inicio</IonLabel>
             </IonItem>
             <IonItem button routerLink="/gestion-inventario">
-              <IonLabel>Gestión de inventario</IonLabel>
+              <IonLabel>Gestión de Inventario</IonLabel>
             </IonItem>
             <IonItem button routerLink="/inventario">
               <IonLabel>Inventario</IonLabel>
             </IonItem>
             <IonItem button routerLink="/historial-movimientos">
-              <IonLabel>Historial De Movimientos</IonLabel>
+              <IonLabel>Historial de Movimientos</IonLabel>
             </IonItem>
             <IonItem button routerLink="/ayuda">
               <IonLabel>Ayuda</IonLabel>
             </IonItem>
-            <IonItem button routerLink="/login">  
+            <IonItem button routerLink="/login">
               <IonLabel>Login</IonLabel>
             </IonItem>
           </IonList>
@@ -49,18 +49,10 @@ const Home: React.FC = () => {
             <IonButtons slot="start">
               <IonMenuButton />
             </IonButtons>
-
             <IonTitle className="custom-title">StockPro+</IonTitle>
-
             {/* Contenedor para buscador e ícono */}
             <IonButtons slot="end" style={{ display: 'flex', alignItems: 'center' }}>
-              {/* Buscador */}
-              <IonSearchbar 
-                placeholder="Buscar..." 
-                style={{ width: '20px', marginRight: '10px' }} 
-              />
-              
-              {/* Botón de inicio de sesión con ícono de persona */}
+              <IonSearchbar placeholder="Buscar..." style={{ width: '150px', marginRight: '10px' }} />
               <IonButton routerLink="/login" fill="outline">
                 <IonIcon icon={personCircle} />
               </IonButton>
@@ -69,18 +61,96 @@ const Home: React.FC = () => {
         </IonHeader>
 
         <IonContent fullscreen>
-          <IonHeader collapse="condense">
-            <IonToolbar>
-              <IonTitle size="large" className="custom-title">StockPro+</IonTitle>
-            </IonToolbar>
-          </IonHeader>
+          {/* Fondo animado */}
+          <div className="container"></div>
 
-          <ExploreContainer />
+          {/* Contenedor del contenido principal */}
+          <div className="home-container">
+            <div className="main-content">
+              <h2>Bienvenido a STOCK PRO+</h2>
+              <p>
+                Aquí puedes gestionar tus inventarios de forma rápida y eficiente.
+                Lleva el control de tus productos con la máxima precisión y comodidad.
+              </p>
 
-          {/* Imagen */}
-          <img src={imagen39} alt="Descripción de la imagen" style={{ width: '100%', height: 'auto' }} />
+              {/* Tarjetas informativas */}
+              <IonGrid className="content-grid" fixed>
+                <IonRow>
+                  <IonCol size="6">
+                    <IonCard className="card blue">
+                      <IonCardHeader>
+                        <IonCardTitle>Total de Productos</IonCardTitle>
+                      </IonCardHeader>
+                      <IonCardContent>1,250 productos registrados</IonCardContent>
+                    </IonCard>
+                  </IonCol>
+                  <IonCol size="6">
+                    <IonCard className="card dark-blue">
+                      <IonCardHeader>
+                        <IonCardTitle>Alertas Activas</IonCardTitle>
+                      </IonCardHeader>
+                      <IonCardContent>5 notificaciones importantes</IonCardContent>
+                    </IonCard>
+                  </IonCol>
+                </IonRow>
+              </IonGrid>
+
+              {/* Imagen representativa */}
+              <div className="image-container">
+                <img 
+                  src={imagen39} 
+                  alt="Gestión de inventario" 
+                  style={{ width: '100%', height: 'auto', marginTop: '20px' }} 
+                />
+              </div>
+
+              {/* Noticias o actualizaciones */}
+              <IonRow>
+                <IonCol size="12">
+                  <IonCard>
+                    <IonCardHeader>
+                      <IonCardTitle>Últimas Noticias</IonCardTitle>
+                    </IonCardHeader>
+                    <IonCardContent>
+                      <p>- Nuevo módulo de integración con proveedores disponible.</p>
+                      <p>- Actualización de seguridad aplicada el 20 de octubre.</p>
+                      <p>- Consulta nuestro webinar sobre optimización del inventario.</p>
+                    </IonCardContent>
+                  </IonCard>
+                </IonCol>
+              </IonRow>
+            </div>
+          </div>
         </IonContent>
       </IonPage>
+
+      {/* Pie de página */}
+      <footer className="footer">
+        <div className="social-links">
+          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+              alt="Facebook"
+              width="30"
+            />
+          </a>
+          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+              alt="Instagram"
+              width="30"
+            />
+          </a>
+          <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/6/60/Logo_of_X_%28formerly_Twitter%29.svg"
+              alt="Twitter"
+              width="30"
+            />
+          </a>
+        </div>
+        <p>© 2024 STOCK PRO+ - Todos los derechos reservados</p>
+      </footer>
     </>
   );
 };
