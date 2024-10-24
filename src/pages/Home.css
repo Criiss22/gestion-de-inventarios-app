@@ -63,10 +63,11 @@
 
 /* Pie de página */
 .footer {
-  background-color: #f1f1f1;
+  background-color: #4c6ffb;
   text-align: center;
   padding: 15px;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Asegura que ocupe todo el ancho */
 }
 
 .footer .social-links {
