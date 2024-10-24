@@ -5,12 +5,15 @@ import {
   IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonGrid, IonRow, IonCol 
 } from '@ionic/react';
 import { personCircle } from 'ionicons/icons';
-import './Home.css'; // Asegúrate de que tus estilos CSS estén aquí
-import imagen39 from '../imagenes/39.jpg'; // Cambia esto por la imagen que desees
+import './Home.css';
+import imagen39 from '../imagenes/39.jpg'; 
 
 const Home: React.FC = () => {
   return (
     <>
+      {/* Fondo animado */}
+      <div className="container"></div> {/* Fondo de pantalla animado */}
+
       {/* Menú lateral */}
       <IonMenu side="start" contentId="main-content" className="custom-menu">
         <IonHeader>
@@ -53,7 +56,7 @@ const Home: React.FC = () => {
             {/* Contenedor para buscador e ícono */}
             <IonButtons slot="end" style={{ display: 'flex', alignItems: 'center' }}>
               <IonSearchbar placeholder="Buscar..." style={{ width: '150px', marginRight: '10px' }} />
-              <IonButton routerLink="/login" fill="outline">
+              <IonButton routerLink="/login" fill="outline" aria-label="Login">
                 <IonIcon icon={personCircle} />
               </IonButton>
             </IonButtons>
@@ -61,9 +64,6 @@ const Home: React.FC = () => {
         </IonHeader>
 
         <IonContent fullscreen>
-          {/* Fondo animado */}
-          <div className="container"></div>
-
           {/* Contenedor del contenido principal */}
           <div className="home-container">
             <div className="main-content">

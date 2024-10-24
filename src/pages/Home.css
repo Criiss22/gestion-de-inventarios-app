@@ -33,7 +33,7 @@
 }
 
 .card {
-  width: 300px;
+  width: 200px;
   padding: 20px;
   color: white;
   border-radius: 10px;
@@ -46,7 +46,7 @@
 }
 
 .dark-blue {
-  background-color: #0056b3;
+  background-color: #42f55d;
 }
 
 /* Imagen */
