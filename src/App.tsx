@@ -7,7 +7,10 @@ import Inventario from './pages/Inventario';
 import HistorialMovimientos from './pages/HistorialMovimientos';
 import Ayuda from './pages/Ayuda';
 import Login from './pages/Login';  // Importación de la página de Login
+<<<<<<< HEAD
 import LoginComponent from "./components/LoginComponent";
+=======
+>>>>>>> 7cda2d7f603a5a4d1d7ac38c3d5eebb5395a0c25
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
